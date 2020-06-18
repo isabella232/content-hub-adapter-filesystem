@@ -2,7 +2,7 @@ package com.coremedia.blueprint.contenthub.adapters.filesystem;
 
 
 /**
- * Interface that marks the settings that are needed for a connection to Dropbox
+ * Interface that marks the settings that are needed for a connection to unterlying file system
  */
 interface FilesystemContentHubSettings {
 
@@ -21,9 +21,6 @@ interface FilesystemContentHubSettings {
    */
   String getProxyType();
 
-  /**
-   * @return a proxy port for your Dropbox Connection
-   */
   Integer getProxyPort();
 
   //--------------------# Filesystem settings #--------------------//
