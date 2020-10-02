@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FilesystemConfiguration {
   @Bean
-  public ContentHubAdapterFactory filesystemContentHubAdapterFactory() {
+  public ContentHubAdapterFactory<?> filesystemContentHubAdapterFactory() {
     return new FilesystemContentHubAdapterFactory();
   }
 }
