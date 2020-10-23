@@ -9,6 +9,7 @@
     <version>1-SNAPSHOT</version>
   </parent>
 
+  <groupId>com.coremedia.blueprint.contenthub</groupId>
   <artifactId>studio-client.content-hub-filesystem</artifactId>
   <packaging>swc</packaging>
 
