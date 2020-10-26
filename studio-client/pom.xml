@@ -11,7 +11,7 @@
   </parent>
 
   <groupId>com.coremedia.blueprint.contenthub</groupId>
-  <artifactId>studio-client.content-hub-filesystem</artifactId>
+  <artifactId>studio-client.content-hub-adapter-filesystem</artifactId>
   <packaging>swc</packaging>
 
   <properties>
