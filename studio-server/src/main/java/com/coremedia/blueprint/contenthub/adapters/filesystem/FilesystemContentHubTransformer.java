@@ -69,8 +69,11 @@ class FilesystemContentHubTransformer implements ContentHubTransformer {
 
   @Nullable
   private String extractDescription(@Nullable FilesystemItem item) {
-    String description = item == null ? null : HtmlUtils.htmlUnescape(item.getDescription());
-    return description;
+    if (item != null) {
+      String description = item.getDescription();
+      return description != null ? HtmlUtils.htmlUnescape(description) : null;
+    }
+    return null;
   }
 
   @Nullable
