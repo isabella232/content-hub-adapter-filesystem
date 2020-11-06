@@ -6,12 +6,20 @@
   <groupId>com.coremedia.blueprint.contenthub</groupId>
   <artifactId>studio-client.content-hub-adapter-filesystem</artifactId>
   <version>1-SNAPSHOT</version>
-  <packaging>swc</packaging>
+  <packaging>jangaroo-app-overlay</packaging>
   <description>Studio Plugin for the Content Hub's Filesystem Adapter</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <jangaroo.version>4.0.74-SNAPSHOT</jangaroo.version>
+    <studio-client.version>1-SNAPSHOT</studio-client.version>
+    <!-- mvn jangaroo:run configuration: -->
+    <!-- Proxy everything to a running Studio (except the locally developed package) -->
+    <jooProxyPathSpec>/*</jooProxyPathSpec>
+    <!-- Default is a locally started Studio, but usually, you will want to set a central
+         development installation.host where Studio is already running (see profile below) -->
+    <jooProxyTargetUri>http://localhost:41080</jooProxyTargetUri>
   </properties>
 
   <organization>
@@ -23,14 +31,14 @@
       <dependency>
         <groupId>com.coremedia.cms</groupId>
         <artifactId>studio-client-core-bom</artifactId>
-        <version>1-SNAPSHOT</version>
+        <version>${studio-client.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.coremedia.cms</groupId>
         <artifactId>studio-client-thirdparty-bom</artifactId>
-        <version>1-SNAPSHOT</version>
+        <version>${studio-client.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -42,39 +50,45 @@
       <groupId>com.coremedia.blueprint.base</groupId>
       <artifactId>bpbase-studio-components</artifactId>
       <type>swc</type>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.coremedia.ui.toolkit</groupId>
       <artifactId>ui-components</artifactId>
       <type>swc</type>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.coremedia.ui.sdk</groupId>
       <artifactId>editor-components</artifactId>
       <type>swc</type>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.coremedia.ui.sdk</groupId>
       <artifactId>content-hub-editor-components</artifactId>
       <type>swc</type>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
       <type>swc</type>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
   <build>
+    <sourceDirectory>src/main/joo</sourceDirectory>
     <plugins>
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-        <version>4.0.73</version>
+        <version>${jangaroo.version}</version>
         <extensions>true</extensions>
         <configuration>
           <namespaces>
@@ -82,9 +96,41 @@
               <uri>exml:com.coremedia.blueprint.studio.contenthub.filesystem</uri>
             </namespace>
           </namespaces>
+          <jooProxyPathSpec>${jooProxyPathSpec}</jooProxyPathSpec>
+          <jooProxyTargetUri>${jooProxyTargetUri}</jooProxyTargetUri>
         </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+<!--              <goal>package</goal>-->
+            </goals>
+            <configuration>
+              <buildDirectoryPath>target/app</buildDirectoryPath>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
 
+  <profiles>
+    <profile>
+      <id>remote-studio-server</id>
+      <!--
+       | This profile will be activated if you set -Dinstallation.host=<FQDN> on your command-line. The jangaroo-plugin
+       | proxy servlet will then route all requests to the defined remote studio rest service
+       | (except these for your local package(s)) and automatically add your local package(s) to the
+       | dynamic-packages.json from that remote location, so that your Studio Client Plugin will be loaded.
+       -->
+      <activation>
+        <property>
+          <name>installation.host</name>
+        </property>
+      </activation>
+      <properties>
+        <jooProxyTargetUri>https://studio.${installation.host}</jooProxyTargetUri>
+      </properties>
+    </profile>
+  </profiles>
 </project>
