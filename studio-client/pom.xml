@@ -6,7 +6,7 @@
   <groupId>com.coremedia.blueprint.contenthub</groupId>
   <artifactId>studio-client.content-hub-adapter-filesystem</artifactId>
   <version>1-SNAPSHOT</version>
-  <packaging>jangaroo-app-overlay</packaging>
+  <packaging>swc</packaging>
   <description>Studio Plugin for the Content Hub's Filesystem Adapter</description>
 
   <properties>
@@ -102,12 +102,8 @@
         <executions>
           <execution>
             <goals>
-              <goal>compile</goal>
-<!--              <goal>package</goal>-->
+              <goal>package-plugin</goal>
             </goals>
-            <configuration>
-              <buildDirectoryPath>target/app</buildDirectoryPath>
-            </configuration>
           </execution>
         </executions>
       </plugin>
