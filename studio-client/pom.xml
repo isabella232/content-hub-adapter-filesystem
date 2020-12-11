@@ -17,9 +17,11 @@
     <!-- mvn jangaroo:run configuration: -->
     <!-- Proxy everything to a running Studio (except the locally developed package) -->
     <jooProxyPathSpec>/*</jooProxyPathSpec>
-    <!-- Default is a locally started Studio, but usually, you will want to set a central
+    <!-- Default is a locally started Studio Client, but usually, you will want to set a central
          development installation.host where Studio is already running (see profile below) -->
-    <jooProxyTargetUri>http://localhost:41080</jooProxyTargetUri>
+    <jooProxyTargetUri>http://localhost:8080</jooProxyTargetUri>
+    <!-- That's why the Jetty serving the plugin must run on another port: -->
+    <jooJettyPort>8090</jooJettyPort>
   </properties>
 
   <organization>
@@ -96,6 +98,7 @@
               <uri>exml:com.coremedia.blueprint.studio.contenthub.filesystem</uri>
             </namespace>
           </namespaces>
+          <jooJettyPort>${jooJettyPort}</jooJettyPort>
           <jooProxyPathSpec>${jooProxyPathSpec}</jooProxyPathSpec>
           <jooProxyTargetUri>${jooProxyTargetUri}</jooProxyTargetUri>
         </configuration>
