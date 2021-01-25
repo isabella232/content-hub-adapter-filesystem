@@ -8,7 +8,7 @@
 
 1. [Installation](installation.md)
 
-    How to administrate the content-hub-adapter-filesystem extension (especially in CoreMedia Studio).
+    How to administrate the content-hub-adapter-filesystem plugin (especially in CoreMedia Studio).
 
 1. [Contribute](contribute.md)
 

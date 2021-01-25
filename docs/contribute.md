@@ -13,7 +13,7 @@
     
 ## How to Contribute Features and Fixes   
 
-As an external developer, we want to encourage you contributing to this extension, so that others can benefit from your fixes and features too. Contributing is as easy as:
+As an external developer, we want to encourage you contributing to this plugin, so that others can benefit from your fixes and features too. Contributing is as easy as:
 
 1. Create an issue for your feature in the original repository on GitHub.
 2. Fork the repository and implement your change.
