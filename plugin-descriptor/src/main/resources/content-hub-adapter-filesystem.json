@@ -1,0 +1,19 @@
+{
+  "$schema": "https://releases-internal.coremedia.com/plugins/plugin-schema-1.0.0.json",
+  "plugins": {
+    "studio-server": {
+      "maven": {
+        "groupId": "com.coremedia.blueprint.contenthub",
+        "artifactId": "studio-server.content-hub-adapter-filesystem",
+        "version": "${project.version}"
+      }
+    },
+    "studio-client": {
+      "maven": {
+        "groupId": "com.coremedia.blueprint.contenthub",
+        "artifactId": "studio-client.content-hub-adapter-filesystem",
+        "version": "${project.version}"
+      }
+    }
+  }
+}
