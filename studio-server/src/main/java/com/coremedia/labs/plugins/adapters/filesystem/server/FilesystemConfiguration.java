@@ -1,4 +1,4 @@
-package com.coremedia.blueprint.contenthub.adapters.filesystem;
+package com.coremedia.labs.plugins.adapters.filesystem.server;
 
 import com.coremedia.contenthub.api.ContentHubAdapterFactory;
 import org.springframework.context.annotation.Bean;

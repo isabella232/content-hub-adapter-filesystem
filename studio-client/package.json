@@ -1,7 +1,7 @@
 {
   "studioPlugins": [
     {
-      "mainClass": "com.coremedia.blueprint.studio.contenthub.filesystem.ContentHubStudioFilesystemPlugin",
+      "mainClass": "com.coremedia.labs.plugins.adapters.filesystem.client.ContentHubStudioFilesystemPlugin",
       "name": "Content Hub"
     }
   ]
