@@ -18,13 +18,15 @@
 
 Depending on your setup and your plans, you can integrate this project in different ways.
 
-* If you want to use the extension in your project, clone or fork the repository.
+* If you want to use the plugin in your project, clone or fork the repository.
 * If you do not want to use GitHub, proceed as described in [Download Release](#download-release).
 * If you want to contribute a new feature or a bugfix, as an external developer, you need a fork of the repository to create a Pull Request. 
 
 ## Use Git 
 
-Clone this repository or your fork. Make sure to use the branch name that matches your workspace version. A fork is required if you plan to customize the plugin.
+Clone this repository or your fork. Make sure to use the suitable branch 
+for your workspace version (see [README](../README.md)). A fork is required if
+you plan to customize the plugin.
 
 Continue with [Activate the plugin](#activate-the-plugin).
 
