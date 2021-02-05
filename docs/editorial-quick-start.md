@@ -21,7 +21,7 @@
 
 ## Introducing
 
-As mentioned in the main documentation, the coremedia-content-hub-filesystem extension
+As mentioned in the main documentation, the coremedia-content-hub-filesystem plugin
 is providing access to a configurable path on the server hosting the Studio server. Common to all
 content-hub-adapters is the appearance in CoreMedia Studio. The image below is showing 
 multiple configured content-hub-adapters in Studio (content-hub-adapter-filesystem is marked with a purple border).
