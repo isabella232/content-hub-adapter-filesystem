@@ -1,4 +1,4 @@
-# The content-hub-adapter-filesystem Extension Manual
+# The content-hub-adapter-filesystem Plugin Manual
 
 ## Table of Contents
 
